@@ -3,11 +3,11 @@
 
 ## Team Members
 
-Zhu Yecheng(Purestreams)
-*
-*
-*
-*
+Zhu Yecheng (Purestreams)
+He Peishan
+Liu Kexin
+Shum Wai Lik Adrian
+Sun Mingyue
 
 
 ## Game Introduction
