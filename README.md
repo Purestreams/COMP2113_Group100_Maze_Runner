@@ -3,17 +3,16 @@
 
 ## Team Members
 
-Zhu Yecheng (Purestreams)
-He Peishan
-Liu Kexin
-Shum Wai Lik Adrian
-Sun Mingyue
-
+Zhu Yecheng (Purestreams) \
+He Peishan \
+Liu Kexin \
+Shum Wai Lik Adrian \
+Sun Mingyue 
 
 ## Game Introduction
 **Name**
 
-abcabcabcabcabc
+abcabcabcabcabcgggg
 
 ### Gameplay
 - abc
