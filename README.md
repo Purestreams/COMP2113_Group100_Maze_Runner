@@ -3,10 +3,10 @@
 
 ## Team Members
 
-Zhu Yecheng (Purestreams) \
+Zhu Yecheng (Purestreams) 3036061373 \
 He Peishan \
 Liu Kexin \
-Shum Wai Lik Adrian \
+Shum Wai Lik Adrian (ActuaryLmao) 3035962441 \
 Sun Mingyue 
 
 ## Game Introduction
