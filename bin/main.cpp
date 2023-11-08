@@ -100,6 +100,7 @@ int main()
                 mvprintw(x+1, y+1, "X");
                 if(maze[x][y] == 2){
                     key = 1;
+                    mvprintw(12, 50, "You found the key!");
                 }
                 else if(maze[x][y] == 3){
                     exit = 1;
@@ -113,6 +114,7 @@ int main()
                 mvprintw(x+1, y+1, "X");
                 if(maze[x][y] == 2){
                     key = 1;
+                    mvprintw(12, 50, "You found the key!");
                 }
                 else if(maze[x][y] == 3){
                     exit = 1;
@@ -126,6 +128,7 @@ int main()
                 mvprintw(x+1, y+1, "X");
                 if(maze[x][y] == 2){
                     key = 1;
+                    mvprintw(12, 50, "You found the key!");
                 }
                 else if(maze[x][y] == 3){
                     exit = 1;
@@ -141,6 +144,7 @@ int main()
                  mvprintw(x+1, y+1, "X");
                  if(maze[x][y] == 2){
                       key = 1;
+                      mvprintw(12, 50, "You found the key!");
                  }
                  else if(maze[x][y] == 3){
                       exit = 1;
@@ -150,9 +154,9 @@ int main()
     }
 
 
-    mvprintw(12, 10, "You found the key and the exit!");
-    mvprintw(13, 10, "You have escaped from the maze!");
-    mvprintw(14, 10, "Thanks for playing the game!");
+    mvprintw(12, 50, "You found the key and the exit!");
+    mvprintw(13, 50, "You have escaped from the maze!");
+    mvprintw(14, 50, "Thanks for playing the game!");
     getch();
     endwin();
     return 0;
