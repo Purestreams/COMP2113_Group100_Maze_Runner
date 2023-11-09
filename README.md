@@ -1,4 +1,4 @@
-# Game Name
+# Maze runner
 *— a game made for ENGG1340 group project*
 
 ## Team Members
@@ -12,11 +12,13 @@ Sun Mingyue
 ## Game Introduction
 **Name**
 
-abcabcabcabcabcgggg
+This game is called *Maze Runner*.
+You are a knight who is trapped in a maze. You need to find the exit to escape from the maze. However, you need to find the key in the maze. You need to kill them to get the key to the exit. You can also get some items to help you kill the monsters.
+
 
 ### Gameplay
-- abc
-- abc
+- standard WASD control
+- A score ranking system
 - abc
 - abc
 
