@@ -72,6 +72,20 @@ int main()
     cbreak();
     echo();
 
+
+    //initial the main menu of the game
+    //press enter to start the game
+    //press q to quit the game
+    mvprintw(0, 0, "Press enter to start the game! Press q to quit the game!");
+    int ch = getch();
+    if(ch == 'q'){
+        endwin();
+        return 0;
+    }
+    else if(ch == '\n'){
+        mvprintw(0, 0, "You have entered the maze!");
+    }
+
     int step=0;
 
     //calculate the time taken
@@ -106,6 +120,8 @@ int main()
     }
     //define function portal
     //if the knight steps on the portal, he will be randomly tp to another place
+
+
 
 
 
@@ -215,6 +231,13 @@ int main()
     mvprintw(20, 50, "Please type your name: ");
     getstr(str);
     mvprintw(21, 50, "Your name is %s", str);
+    //if name is blank or too long, ignore the name
+    if(strlen(str) == 0 || strlen(str) > 20){
+        mvprintw(22, 50, "Your name is invalid!");
+        getch();
+        endwin();
+        return 0;
+    }
 
     //add the score to the file record.txt
     //format: name score
