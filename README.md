@@ -24,7 +24,6 @@ You are a knight who is trapped in a maze . You need to find the exit to escape 
 - Press "ENTER" to start the game
 - Press "CTRL" + "C" to exit the game
 - A score ranking system
-- abc
-- abc
+
 
 ## Features & Explanation
