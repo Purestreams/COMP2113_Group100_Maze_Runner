@@ -13,7 +13,7 @@ Sun Mingyue
 **Name**
 
 This game is called *Maze Runner*.
-You are a knight who is trapped in a maze. You need to find the exit to escape from the maze. However, you need to find the key in the maze. You need to kill them to get the key to the exit. You can also get some items to help you kill the monsters.
+You are a knight who is trapped in a maze . You need to find the exit to escape from the maze. But first, you need to find the key in the maze. However, the key and the exit will change positions randomly after some period. Find the key and escape from the maze. Have fun! 
 
 
 ### Gameplay
