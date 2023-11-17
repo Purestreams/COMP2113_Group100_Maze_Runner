@@ -17,10 +17,10 @@ You are a knight who is trapped in a maze . You need to find the exit to escape 
 
 
 ### Gameplay
-- Press "W" to move up
-- Press "A" to move left
-- Press "S" to move down
-- Press "D" to move right
+- Press "W" to move one step up
+- Press "A" to move one step left
+- Press "S" to move one step down
+- Press "D" to move one step right
 - Press "ENTER" to start the game
 - Press "CTRL" + "C" to exit the game
 - A score ranking system

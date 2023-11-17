@@ -92,7 +92,7 @@ int main()
     time_t start, end;
     time(&start);
 
-    //display the maze
+    //display the maze, timer and step counter
     int **maze = new int*[30];
     for(int i=0;i<30;i++){
         maze[i] = new int[30];
@@ -118,6 +118,9 @@ int main()
         }
 
     }
+    mvprintw(3,10,"00:00");
+    mvprintw(4,10,"Steps: %d",step);
+
     //define function portal
     //if the knight steps on the portal, he will be randomly tp to another place
 
