@@ -5,7 +5,7 @@
 
 Zhu Yecheng (Purestreams) 3036061373 \
 He Peishan \
-Liu Kexin \
+Liu Kexin (Lydialkx) 3036098182\
 Shum Wai Lik Adrian (ActuaryLmao) 3035962441 \
 Sun Mingyue 
 
