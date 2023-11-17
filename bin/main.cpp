@@ -118,8 +118,8 @@ int main()
         }
 
     }
-    mvprintw(3,10,"00:00");
-    mvprintw(4,10,"Steps: %d",step);
+    mvprintw(3,50,"00:00");
+    mvprintw(4,50,"Steps: %d",step);
 
     //define function portal
     //if the knight steps on the portal, he will be randomly tp to another place
@@ -144,8 +144,9 @@ int main()
     while(key == 0 || exit == 0){
         char ch = getch();
         if(ch == 'a'){
-            step += 1;
+            //step += 1;
             if(maze[x][y-1] == 1 || maze[x][y-1] == 2 || maze[x][y-1] == 3){
+                step += 1;
                 mvprintw(x+1, y+1, ".");
                 y--;
                 mvprintw(x+1, y+1, "X");
@@ -162,8 +163,9 @@ int main()
             }
         }
         else if(ch == 'd'){
-            step += 1;
+            //step += 1;
             if(maze[x][y+1] == 1 || maze[x][y+1] == 2 || maze[x][y+1] == 3){
+                step += 1;
                 mvprintw(x+1, y+1, ".");
                 y++;
                 mvprintw(x+1, y+1, "X");
@@ -180,8 +182,9 @@ int main()
             }
         }
         else if(ch == 'w'){
-            step += 1;
+            //step += 1;
             if(maze[x-1][y] == 1 || maze[x-1][y] == 2 || maze[x-1][y] == 3){
+                step += 1;
                 mvprintw(x+1, y+1, ".");
                 x--;
                 mvprintw(x+1, y+1, "X");
@@ -198,10 +201,9 @@ int main()
             }
         }
         else if(ch == 's'){
-            step += 1;
-            if(maze[x+1][y] == 1
-                || maze[x+1][y] == 2
-                || maze[x+1][y] == 3){
+            //step += 1;
+            if(maze[x+1][y] == 1|| maze[x+1][y] == 2|| maze[x+1][y] == 3){
+                 step += 1;
                  mvprintw(x+1, y+1, ".");
                  x++;
                  mvprintw(x+1, y+1, "X");
@@ -215,8 +217,9 @@ int main()
                     else if(maze[x][y] == 4){
                         portal(x, y, maze);
                     }
-                }
+                }       
         }
+        mvprintw(4,50,"Steps: %d",step); 
     }
     //when the knight finds the key and the exit, quit the ono-interruptive input
     echo();
