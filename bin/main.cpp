@@ -162,6 +162,77 @@ int main()
             mvprintw(4,50,"Time: %d seconds",timetaken);
         }
 
+        srand(time(NULL));
+        //change the position of key every 10 seconds
+        if (keyexist){
+        int changex=rand()%25+3;
+        int changey=rand()%25+3;
+        if (timetaken%10==0){
+            for(int i=0;i<30;i++){
+                for(int j=0;j<30;j++){
+                    if (maze[i][j]==2){
+                        maze[i][j]=1;
+                        mvprintw(i+1, j+1, ".");
+                        mvprintw(changex+1, changey+1, "K");
+                        maze[changex][changey]=2;
+
+                        //make sure the key is accessible
+                        if ((maze[changex-1][changey]==0)&&(maze[changex+1][changey]==0)&&(maze[changex][changey+1]==0)&&(maze[changex][changey-1]==0)){
+                            maze[changex-1][changey]=1;
+                            mvprintw(changex,changey+1,".");
+                            maze[changex+1][changey]=1;
+                            mvprintw(changex+2,changey+1,".");
+                            maze[changex][changey+1]=1;
+                            mvprintw(changex+1,changey+2,".");
+                            maze[changex][changey-1]=1;
+                            mvprintw(changex+1,changey,".");
+                        }
+                    }
+                }
+            }
+        }}
+
+        //change the position of exit every 15 seconds
+        int changeexit=rand()%28+2;
+        if (timetaken%15==0){
+            for (int k=0;k<30;k++){
+                if (maze[28][k]==3){
+                    maze[28][k]=0;
+                    mvprintw(29, k+1, "#");
+                    mvprintw(29,changeexit+1, "E");
+                    maze[28][changeexit]=3;
+
+                    //make sure the exit is accessible
+                    if ((maze[27][changeexit]==0) && (maze[28][changeexit-1]==0) && (maze[28][changeexit+1]==0)){
+                        maze[27][changeexit]=1;
+                        mvprintw(28,changeexit+1,".");
+                        maze[28][changeexit-1]=1;
+                        mvprintw(29,changeexit,".");
+                        maze[28][changeexit-1]=1;
+                        mvprintw(29,changeexit+2,".");
+                    }
+                }
+            }
+        }
+
+         //change the position of monster every 2 seconds
+        int changemx=rand()%27+3;
+        int changemy=rand()%27+3;
+        if (timetaken%2==0){
+            if (maze[changemx][changemy]==1){
+                for(int i=0;i<30;i++){
+                    for(int j=0;j<30;j++){
+                        if (maze[i][j]==5){
+                            maze[i][j]=1;
+                            mvprintw(i+1,j+1,".");
+                            maze[changemx][changemy]=5;
+                            mvprintw(changemx+1,changemy+1,"M");
+                        }
+                    }
+                }
+            }
+        }
+
         char ch = getch();
         if(ch == 'a'){
             if(maze[x][y-1] == 1 || maze[x][y-1] == 2 || maze[x][y-1] == 3 || maze[x][y-1] == 5 ){
