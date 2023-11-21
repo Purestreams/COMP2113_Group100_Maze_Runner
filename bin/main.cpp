@@ -208,7 +208,7 @@ int main()
         char ch = getch();
         //the position of the knight will be changed step by step according to player's commands
         if(ch == 'a'){ 
-            if(maze[x][y-1] == 1 || maze[x][y-1] == 2 || maze[x][y-1] == 3 || maze[x][y-1] == 5 || maze[x][y-1] == 6){
+            if(maze[x][y-1] == 1 || maze[x][y-1] == 2 || maze[x][y-1] == 5 || maze[x][y-1] == 6){
                 step += 1; //the knight can move one step left successfully if the left is not wall
                 mvprintw(x+1, y+1, ".");
                 y--; 
@@ -218,9 +218,6 @@ int main()
                     mvprintw(9, 50, "You have found the key!");
                     mvprintw(10, 50, "Try to find the exit!");
                     keyexist=false;  //the position of key will stop randomly generating any more
-                }
-                else if(maze[x][y] == 3){
-                    exit = 1;
                 }
                 else if(maze[x][y] == 4){
                     portal(x, y, maze);
@@ -232,9 +229,14 @@ int main()
                     step -= 20;
                 }
             }
+            else if (maze[x][y-1] == 3){  //the exit is only valid after finding the key
+                if (key==1){
+                    exit=1;
+                }
+            }
         }
         else if(ch == 'd'){
-            if(maze[x][y+1] == 1 || maze[x][y+1] == 2 || maze[x][y+1] == 3 || maze[x][y+1] == 5 || maze[x][y+1] == 6 ){
+            if(maze[x][y+1] == 1 || maze[x][y+1] == 2 || maze[x][y+1] == 5 || maze[x][y+1] == 6 ){
                 step += 1; //the knight can move one step right successfully if the right is not wall
                 mvprintw(x+1, y+1, ".");
                 y++;
@@ -245,9 +247,6 @@ int main()
                     mvprintw(10, 50, "Try to find the exit!");
                     keyexist=false;
                 }
-                else if(maze[x][y] == 3){
-                    exit = 1;
-                }
                 else if(maze[x][y] == 4){
                     portal(x, y, maze);
                 }
@@ -258,9 +257,14 @@ int main()
                     step -= 20;
                 }
             }
+            else if (maze[x][y+1] == 3){  //the exit is only valid after finding the key
+                if (key==1){
+                    exit=1;
+                }
+            }
         }
         else if(ch == 'w'){
-            if(maze[x-1][y] == 1 || maze[x-1][y] == 2 || maze[x-1][y] == 3 || maze[x-1][y] == 5 || maze[x-1][y] == 6){
+            if(maze[x-1][y] == 1 || maze[x-1][y] == 2 || maze[x-1][y] == 5 || maze[x-1][y] == 6){
                 step += 1; //the knight can move one step up successfully if the above is not wall
                 mvprintw(x+1, y+1, ".");
                 x--;
@@ -271,9 +275,6 @@ int main()
                     mvprintw(10, 50, "Try to find the exit!");
                     keyexist=false;
                 }
-                else if(maze[x][y] == 3){
-                    exit = 1;
-                }
                 else if(maze[x][y] == 4){
                     portal(x, y, maze);
                 }
@@ -284,9 +285,14 @@ int main()
                     step -= 20;
                 }
             }
+            else if (maze[x-1][y] == 3){  //the exit is only valid after finding the key
+                if (key==1){
+                    exit=1;
+                }
+            }
         }
         else if(ch == 's'){
-            if(maze[x+1][y] == 1|| maze[x+1][y] == 2|| maze[x+1][y] == 3 || maze[x+1][y] == 5 || maze[x+1][y] == 6 ){
+            if(maze[x+1][y] == 1|| maze[x+1][y] == 2|| maze[x+1][y] == 5 || maze[x+1][y] == 6 ){
                  step += 1; //the knight can move one step down successfully if the below is not wall
                  mvprintw(x+1, y+1, ".");
                  x++;
@@ -297,9 +303,6 @@ int main()
                       mvprintw(10, 50, "Try to find the exit!");
                       keyexist=false;
                  }
-                 else if(maze[x][y] == 3){
-                      exit = 1;
-                 }
                 else if(maze[x][y] == 4){
                     portal(x, y, maze);
                     }
@@ -309,7 +312,12 @@ int main()
                 else if(maze[x][y] == 6){
                     step -= 20;
                 }
-                }       
+            }
+            else if (maze[x+1][y] == 3){  //the exit is only valid after finding the key
+                if (key==1){
+                    exit=1;
+                }
+            }       
         }
         else if (ch == 'q'){
             endwin();
