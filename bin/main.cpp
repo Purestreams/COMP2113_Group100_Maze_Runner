@@ -21,6 +21,7 @@ using namespace std;
 //using dynamic memory allocation to store the maze
 
 //generating a 30x50 maze
+//the function input is an initialized two-dimensional array, and the output is a maze with randomly generated numbers 
 //0 represents wall, 1 represents path, 2 represents key, 3 represents exit
 // 4 represents the portal
 // 5 represents the monster, 6 represents the treasury box
@@ -53,7 +54,8 @@ void generate_maze(int **maze){
     maze[20][20] = 5;
 }
 
-
+//define function portal
+//if the knight steps on the portal, he will be randomly tp to another place
 void portal(int &x, int &y, int **maze){
     int i = rand()%30;
     int j = rand()%30;
@@ -103,7 +105,7 @@ int main()
     for(int i=0;i<30;i++){
         maze[i] = new int[30];
     }
-    generate_maze(maze);
+    generate_maze(maze); //it will be shown according to the randomly generated maze
     for(int i=0;i<30;i++){
         for(int j=0;j<30;j++){
             if(maze[i][j] == 0){
@@ -131,16 +133,6 @@ int main()
     mvprintw(4,50,"Time:          ");
 
 
-
-    //define function portal
-    //if the knight steps on the portal, he will be randomly tp to another place
-
-
-
-
-
-
-
     //allow player to move the knight
     int x = 1;
     int y = 1;
@@ -153,7 +145,7 @@ int main()
     // use a to move left, d to move right, w to move up, s to move down
     //make input invisible
     noecho();
-    while(key == 0 || exit == 0){
+    while(key == 0 || exit == 0){  //the game will terminate after the player finds both key and exit
         //include a timer to display the time taken
         time(&current);
         if (current!=showtime){
@@ -176,7 +168,7 @@ int main()
                         mvprintw(changex+1, changey+1, "K");
                         maze[changex][changey]=2;
 
-                        //make sure the key is accessible
+                        //make sure the key is accessible, if not, change the surrounding of key into paths
                         if ((maze[changex-1][changey]==0)&&(maze[changex+1][changey]==0)&&(maze[changex][changey+1]==0)&&(maze[changex][changey-1]==0)){
                             maze[changex-1][changey]=1;
                             mvprintw(changex,changey+1,".");
@@ -202,7 +194,7 @@ int main()
                     mvprintw(29,changeexit+1, "E");
                     maze[28][changeexit]=3;
 
-                    //make sure the exit is accessible
+                    //make sure the exit is accessible, if not, change the surrounding of key into paths
                     if ((maze[27][changeexit]==0) && (maze[28][changeexit-1]==0) && (maze[28][changeexit+1]==0)){
                         maze[27][changeexit]=1;
                         mvprintw(28,changeexit+1,".");
@@ -222,7 +214,7 @@ int main()
             if (maze[changemx][changemy]==1){
                 for(int i=0;i<30;i++){
                     for(int j=0;j<30;j++){
-                        if (maze[i][j]==5){
+                        if (maze[i][j]==5){  //the original position of monster will change to path
                             maze[i][j]=1;
                             mvprintw(i+1,j+1,".");
                             maze[changemx][changemy]=5;
@@ -237,26 +229,27 @@ int main()
         if (step==50){
             int boxx=rand()%26+3;
             int boxy=rand()%26+3;
-            if ((maze[boxx][boxy]==1) ||(maze[boxx][boxy]==0)){
+            if ((maze[boxx][boxy]==1) ||(maze[boxx][boxy]==0)){ //make sure it will only appear in position that is originally path or wall
                 maze[boxx][boxy]=6;
                 mvprintw(boxx+1,boxy+1,"T");}
-            else {
+            else {  //if the randomly generated position coincides with key, exit or monster, it will be changed
                 maze[boxx+1][boxy+1]=6;
                 mvprintw(boxx+2,boxy+2,"T");}
         }
 
         char ch = getch();
-        if(ch == 'a'){
+        //the position of the knight will be changed step by step according to player's commands
+        if(ch == 'a'){ 
             if(maze[x][y-1] == 1 || maze[x][y-1] == 2 || maze[x][y-1] == 3 || maze[x][y-1] == 5 || maze[x][y-1] == 6){
-                step += 1;
+                step += 1; //the knight can move one step left successfully if the left is not wall
                 mvprintw(x+1, y+1, ".");
-                y--;
-                mvprintw(x+1, y+1, "X");
-                if(maze[x][y] == 2){
+                y--; 
+                mvprintw(x+1, y+1, "X"); 
+                if(maze[x][y] == 2){ 
                     key = 1;
                     mvprintw(9, 50, "You have found the key!");
                     mvprintw(10, 50, "Try to find the exit!");
-                    keyexist=false;
+                    keyexist=false;  //the position of key will stop randomly generating any more
                 }
                 else if(maze[x][y] == 3){
                     exit = 1;
@@ -264,17 +257,17 @@ int main()
                 else if(maze[x][y] == 4){
                     portal(x, y, maze);
                 }
-                else if(maze[x][y] == 5){
+                else if(maze[x][y] == 5){  //if the knight meets the monster, the step will increase by 10
                     step += 10;
                 }
-                else if(maze[x][y] == 6){
+                else if(maze[x][y] == 6){  //if the knight finds the treasury box, the step will decrease by 20
                     step -= 20;
                 }
             }
         }
         else if(ch == 'd'){
             if(maze[x][y+1] == 1 || maze[x][y+1] == 2 || maze[x][y+1] == 3 || maze[x][y+1] == 5 || maze[x][y+1] == 6 ){
-                step += 1;
+                step += 1; //the knight can move one step right successfully if the right is not wall
                 mvprintw(x+1, y+1, ".");
                 y++;
                 mvprintw(x+1, y+1, "X");
@@ -300,7 +293,7 @@ int main()
         }
         else if(ch == 'w'){
             if(maze[x-1][y] == 1 || maze[x-1][y] == 2 || maze[x-1][y] == 3 || maze[x-1][y] == 5 || maze[x-1][y] == 6){
-                step += 1;
+                step += 1; //the knight can move one step up successfully if the above is not wall
                 mvprintw(x+1, y+1, ".");
                 x--;
                 mvprintw(x+1, y+1, "X");
@@ -326,7 +319,7 @@ int main()
         }
         else if(ch == 's'){
             if(maze[x+1][y] == 1|| maze[x+1][y] == 2|| maze[x+1][y] == 3 || maze[x+1][y] == 5 || maze[x+1][y] == 6 ){
-                 step += 1;
+                 step += 1; //the knight can move one step down successfully if the below is not wall
                  mvprintw(x+1, y+1, ".");
                  x++;
                  mvprintw(x+1, y+1, "X");
