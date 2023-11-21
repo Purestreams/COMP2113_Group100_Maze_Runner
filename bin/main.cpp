@@ -231,6 +231,8 @@ int main()
             }
             else if (maze[x][y-1] == 3){  //the exit is only valid after finding the key
                 if (key==1){
+                    step += 1;
+                    mvprintw(x+1, y+1, ".");
                     exit=1;
                 }
             }
@@ -259,6 +261,8 @@ int main()
             }
             else if (maze[x][y+1] == 3){  //the exit is only valid after finding the key
                 if (key==1){
+                    step += 1;
+                    mvprintw(x+1, y+1, ".");
                     exit=1;
                 }
             }
@@ -287,6 +291,8 @@ int main()
             }
             else if (maze[x-1][y] == 3){  //the exit is only valid after finding the key
                 if (key==1){
+                    step += 1;
+                    mvprintw(x+1, y+1, ".");
                     exit=1;
                 }
             }
@@ -315,6 +321,8 @@ int main()
             }
             else if (maze[x+1][y] == 3){  //the exit is only valid after finding the key
                 if (key==1){
+                    step += 1;
+                    mvprintw(x+1, y+1, ".");
                     exit=1;
                 }
             }       
