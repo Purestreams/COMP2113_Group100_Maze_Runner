@@ -49,15 +49,32 @@ int main()
     //initial the main menu of the game
     //press enter to start the game
     //press q to quit the game
-    mvprintw(0, 0, "Press enter to start the game! Press Q to quit the game!");
-    int ch = getch();
-    if(ch == 'q'){
-        endwin();
-        return 0;
+    mvprintw(0, 0, "Press E to start the game! Press Q to quit the game!");
+    mvprintw(1, 0, "This is the group project of COMP2113 in 2023 by Group 100");
+    mvprintw(2, 0, "The game is developed by Purestreams, STARQUANTUM, Lydialkx, ActuaryLmao and Mingyue13");
+
+    while (true) {
+        int ch = getch();
+        if(ch == 'q'){
+            endwin();
+            return 0;
+        }
+        else if(ch == 'e'){
+            mvprintw(0, 0, " You have entered the maze!");
+            //clean the screen
+            for(int i=0;i<30;i++){
+                for(int j=0;j<30;j++){
+                    mvprintw(i+1, j+1, "                                                                                                              ");
+                }
+            }
+            break;
+        }
+        else{
+            mvprintw(5, 0, "Invalid input! Please try again!");
+        }
     }
-    else if(ch == '\n'){
-        mvprintw(0, 0, " You have entered the maze!                                        ");
-    }
+
+
 
     int step=0;
 
@@ -175,10 +192,10 @@ int main()
             }
         }
 
-         //change the position of monster every 2 seconds
+         //change the position of monster every 15 seconds
         int changemx=rand()%27+3;
         int changemy=rand()%27+3;
-        if (timetaken%2==0){
+        if (timetaken%15==0){
             if (maze[changemx][changemy]==1){
                 for(int i=0;i<30;i++){
                     for(int j=0;j<30;j++){
@@ -389,15 +406,13 @@ int main()
     //display the top 10 scores in record.txt
     //if EOL is reached, stop displaying
     mvprintw(30, 50, "Top 10 scores:");
-    for(int j=0;j<i;j++){
+    for(int j=0;j<10;j++){
         mvprintw(31+j, 50, "%s %d", name[j].c_str(), score1[j]);
     }
 
 
 
-    mvprintw(24, 50, "You found the key and the exit!");
-    mvprintw(25, 50, "You have escaped from the maze!");
-    mvprintw(26, 50, "Thanks for playing the game, %s!",str);
+    mvprintw(24, 50, "Thanks for playing the game, %s!",str);
     getch();
     endwin();
     return 0;
