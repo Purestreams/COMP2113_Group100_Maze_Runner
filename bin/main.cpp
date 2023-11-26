@@ -37,6 +37,9 @@ void portal(int &x, int &y, int **maze){
     mvprintw(x+1, y+1, "X");
 }
 
+//define function find_treasure
+//if the knight finds the treasure box, he will get extra point from 100 to 200
+
 int main()
 {
     char str[80];
@@ -53,25 +56,117 @@ int main()
     mvprintw(1, 0, "This is the group project of COMP2113 in 2023 by Group 100");
     mvprintw(2, 0, "The game is developed by Purestreams, STARQUANTUM, Lydialkx, ActuaryLmao and Mingyue13");
 
+                                                                                                                
+                                                                                                                                                                                                                         
+
+    int location = 0;
+
     while (true) {
-        int ch = getch();
-        if(ch == 'q'){
-            endwin();
-            return 0;
-        }
-        else if(ch == 'e'){
-            mvprintw(0, 0, " You have entered the maze!");
-            //clean the screen
-            for(int i=0;i<30;i++){
-                for(int j=0;j<30;j++){
-                    mvprintw(i+1, j+1, "                                                                                                              ");
-                }
+        mvprintw(10,10, "         :::   :::       :::     ::::::::: ::::::::::          :::::::::  :::    ::: ::::    ::: ::::    ::: :::::::::: :::::::::");
+        mvprintw(11,10, "       :+:+: :+:+:    :+: :+:        :+:  :+:                 :+:    :+: :+:    :+: :+:+:   :+: :+:+:   :+: :+:        :+:    :+:");
+        mvprintw(12,10, "     +:+ +:+:+ +:+  +:+   +:+      +:+   +:+                 +:+    +:+ +:+    +:+ :+:+:+  +:+ :+:+:+  +:+ +:+        +:+    +:+");
+        mvprintw(13,10, "    +#+  +:+  +#+ +#++:++#++:    +#+    +#++:++#            +#++:++#:  +#+    +:+ +#+ +:+ +#+ +#+ +:+ +#+ +#++:++#   +#++:++#:");
+        mvprintw(14,10, "   +#+       +#+ +#+     +#+   +#+     +#+                 +#+    +#+ +#+    +#+ +#+  +#+#+# +#+  +#+#+# +#+        +#+    +#+");
+        mvprintw(15,10, "  #+#       #+# #+#     #+#  #+#      #+#                 #+#    #+# #+#    #+# #+#   #+#+# #+#   #+#+# #+#        #+#    #+#");
+        mvprintw(16,10, " ###       ### ###     ### ######### ##########          ###    ###  ########  ###    #### ###    #### ########## ###    ###");
+
+        //create a menu of start the game , score board and quit the game
+        mvprintw(20, 10, "Start the game");
+        mvprintw(21, 10, "Score board");
+        mvprintw(22, 10, "View the instruction");
+        mvprintw(23, 10, "Quit the game");
+        //handle the input
+        char input = getch();
+        //make input invisible
+        noecho();
+
+        if (input == 'e') {
+            if (location == 0) {
+                //clean all the previous display
+                clear();
+                break;
             }
-            break;
+            else if (location ==1){
+                //display the score board
+                //read the file record.txt
+                ifstream fin;
+                fin.open("record.txt");
+                string name[100];
+                int score[100];
+                int i = 0;
+                while(fin >> name[i] >> score[i]){
+                    i++;
+                }
+                for(int j=0;j<i;j++){
+                    for(int k=0;k<i-j-1;k++){
+                        if(score[k] < score[k+1]){
+                            int temp = score[k];
+                            score[k] = score[k+1];
+                            score[k+1] = temp;
+                            string temp1 = name[k];
+                            name[k] = name[k+1];
+                            name[k+1] = temp1;
+                        }
+                    }
+                }
+                fin.close();
+                //display the top 10 scores in record.txt
+                //if EOL is reached, stop displaying
+                mvprintw(30, 50, "Top 10 scores:");
+                for(int j=0;j<10;j++){
+                    mvprintw(31+j, 50, "%s %d", name[j].c_str(), score[j]);
+                }
+                getch();
+                endwin();
+                return 0;
+            }
+            else if (location == 2) {
+                //display the instruction
+                mvprintw(30, 50, "The knight is trapped in a maze and he needs to escape from the maze by finding the key");
+                mvprintw(31, 50, "Use a to move left, d to move right, w to move up, s to move down");
+                mvprintw(32, 50, "The knight will move until he finds the key and the exit");
+                mvprintw(34, 50, "* If the knight finds the treasure box, he will get extra point from 100 to 200 and lose 20 steps");
+                mvprintw(35, 50, "* If the knight meets the monster, he will get extra 10 steps");
+                mvprintw(37, 50, "The score is calculated by the number of steps the player takes and time taken to complete the game");
+                mvprintw(38, 50, "The player can get extra points by finding special items");
+                mvprintw(39, 50, "The player can press q to quit the game anytime");
+                mvprintw(40, 50, "Press any key to return to the main menu");
+                getch();
+                clear();
+            }
+            else if (location == 3) {
+                endwin();
+                return 0;
+            }
         }
-        else{
-            mvprintw(5, 0, "Invalid input! Please try again!");
+
+
+        //move the cursor up and down
+        if (input == 'w') {
+            //clean the previous cursor
+            mvprintw(20 + location, 8, " ");
+            location--;
+            mvprintw(20 + location, 8, "*");
+            if (location < 0) {
+                //clean the previous cursor
+                mvprintw(20 + location, 8, " ");
+                location = 2;
+                mvprintw(20 + location, 8, "*");
+            }
         }
+        else if (input == 's') {
+            //clean the previous cursor
+            mvprintw(20 + location, 8, " ");
+            location++;
+            mvprintw(20 + location, 8, "*");
+            if (location > 2) {
+                //clean the previous cursor
+                mvprintw(20 + location, 8, " ");
+                location = 0;
+                mvprintw(20 + location, 8, "*");
+            }
+        }
+
     }
 
 
@@ -100,16 +195,16 @@ int main()
                 mvprintw(i+1, j+1, ".");
             }
             else if(maze[i][j] == 2){
-                mvprintw(i+1, j+1, "K");
+                mvprintw(i+1, j+1, "K"); //key
             }
             else if(maze[i][j] == 3){
-                mvprintw(i+1, j+1, "E");
+                mvprintw(i+1, j+1, "E"); //exit
             }
-            else if(maze[i][j] == 4){
-                mvprintw(i+1, j+1, "P");
+            else if(maze[i][j] == 6){
+                mvprintw(i+1, j+1, "T"); //treasury box
             }
             else if(maze[i][j] == 5){
-                mvprintw(i+1, j+1, "M");
+                mvprintw(i+1, j+1, "M"); //monster
             }
         }
 
@@ -122,6 +217,7 @@ int main()
     int x = 1;
     int y = 1;
     int key = 0;
+    int extra = 0; //extra point from the treasure box and monster
     int exit = 0;
     bool keyexist=true;
     //initial position of the knight
@@ -240,9 +336,13 @@ int main()
                     portal(x, y, maze);
                 }
                 else if(maze[x][y] == 5){  //if the knight meets the monster, the step will increase by 10
+                    mvprintw(11, 50, "You meet the monster! Extra move and score!");
+                    extra += 50 + rand()%50;
                     step += 10;
                 }
                 else if(maze[x][y] == 6){  //if the knight finds the treasury box, the step will decrease by 20
+                    mvprintw(12, 50, "You find the treasury box! Extra move and score!");
+                    extra = 100 + rand()%100;
                     step -= 20;
                 }
             }
@@ -270,9 +370,13 @@ int main()
                     portal(x, y, maze);
                 }
                 else if(maze[x][y] == 5){
+                    mvprintw(11, 50, "You meet the monster! Extra move and score!");
+                    extra += 50 + rand()%50;
                     step += 10;
                 }
                 else if(maze[x][y] == 6){
+                    mvprintw(12, 50, "You find the treasury box! Extra move and score!");
+                    extra = 100 + rand()%100;
                     step -= 20;
                 }
             }
@@ -300,9 +404,13 @@ int main()
                     portal(x, y, maze);
                 }
                 else if(maze[x][y] == 5){
+                    mvprintw(11, 50, "You meet the monster! Extra move and score!");
+                    extra += 50 + rand()%50;
                     step += 10;
                 }
                 else if(maze[x][y] == 6){
+                    mvprintw(12, 50, "You find the treasury box! Extra move and score!");
+                    extra = 100 + rand()%100;
                     step -= 20;
                 }
             }
@@ -330,9 +438,11 @@ int main()
                     portal(x, y, maze);
                     }
                 else if(maze[x][y] == 5){
+                    mvprintw(11, 50, "You meet the monster! Extra move and score!");
                     step += 10;
                 }
                 else if(maze[x][y] == 6){
+                    mvprintw(12, 50, "You find the treasury box! Extra move and score!");
                     step -= 20;
                 }
             }
@@ -359,8 +469,13 @@ int main()
     //the score is calculated by the number of steps the player takes and time taken to complete the game
     mvprintw(9, 50, "You have taken %d steps to complete the game!", step);
     mvprintw(10, 50, "You have taken %f seconds to complete the game!", dif);
-    int score = dif/step*1000;
+    int score = dif/step*1000 ;
     mvprintw(14, 50, "Your score is %d!", score);
+    if (extra != 0) {
+        mvprintw(15, 50, "You have gained %d extra points by finding speicals!", extra);
+        score += extra;
+        mvprintw(16, 50, "Your final score is %d!", score);
+    }
 
     //type the name for storing the score
     mvprintw(18, 50, "Please type your name: ");

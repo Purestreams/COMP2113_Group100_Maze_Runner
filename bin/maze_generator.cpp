@@ -30,11 +30,10 @@ void generate_maze(int **maze){
     //make sure the knight can escape from the maze
     //check whether the maze is solvable
     //if the maze is not solvable, regenerate the maze
-    maze[10][10] = 4;
     maze[1][1] = 1;
     maze[28][28] = 3;
     maze[15][15] = 2;
     maze[1][2] = 1;
     maze[2][1] = 1;
-    maze[20][20] = 5;
+    maze[20][20] = 5; //monster
 }
