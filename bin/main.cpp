@@ -159,7 +159,7 @@ int main()
             mvprintw(20 + location, 8, " ");
             location++;
             mvprintw(20 + location, 8, "*");
-            if (location > 2) {
+            if (location > 3) {
                 //clean the previous cursor
                 mvprintw(20 + location, 8, " ");
                 location = 0;
