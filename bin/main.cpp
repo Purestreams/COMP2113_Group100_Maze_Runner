@@ -48,6 +48,12 @@ int main()
     cbreak();
     echo();
 
+    struct
+    {
+        char name[20];
+        int score;
+    } user;
+    
 
     //initial the main menu of the game
     //press enter to start the game
@@ -476,24 +482,29 @@ int main()
         score += extra;
         mvprintw(16, 50, "Your final score is %d!", score);
     }
+    
 
+    user.score = score;
+    
     //type the name for storing the score
     mvprintw(18, 50, "Please type your name: ");
-    getstr(str);
-    mvprintw(19, 50, "Your name is %s", str);
+    getstr(user.name);
+    
+
+    mvprintw(19, 50, "Your name is %s", user.name);
     //if name is blank or too long, ignore the name
-    if(strlen(str) == 0 || strlen(str) > 20){
+    if(strlen(str) == 0 || strlen(user.name) > 20){
         mvprintw(20, 50, "Your name is invalid!");
         getch();
         endwin();
         return 0;
     }
-
+//str
     //add the score to the file record.txt
     //format: name score
     ofstream fout;
     fout.open("record.txt",ios::app);
-    fout << str << " " << score << endl;
+    fout << user.name << " " << score << endl;
     fout.close();
     //sort the file record.txt by score
     //use bubble sort
@@ -527,7 +538,7 @@ int main()
 
 
 
-    mvprintw(24, 50, "Thanks for playing the game, %s!",str);
+    mvprintw(24, 50, "Thanks for playing the game, %s!",user.name);
     getch();
     endwin();
     return 0;
