@@ -40,7 +40,15 @@ However, the key and the exit will change positions randomly after some period. 
 - The key and the exit will change positions randomly after some period
 - The game will end when you get to the exit
 - Displays the number of steps and time taken and your score when the game ends
-
+  
+## Code Requirement
+- Generation of random game sets or events
+- Data structures for storing game status
+- Dynamic memory management
+- File input/output (Scoreboard)
+- Program codes in multiple files
+- Proper indentation and naming styles
+- In-code documentation
 
 ### Compilation
 Run `make` under the ~/src directory of the project (i.e. where this file is located) to compile.
