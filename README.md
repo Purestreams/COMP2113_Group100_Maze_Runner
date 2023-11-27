@@ -13,7 +13,7 @@ Sun Mingyue (Mingyue13) 3035988615
 **Name**
 
 This game is called *Maze Runner*.
-You are a knight who is trapped in a maze . You need to find the exit to escape from the maze. But first, you need to find the key in the maze. 
+You are a knight who is trapped in a maze. You need to find the exit to escape from the maze. But first, you need to find the key in the maze. 
 The maze is represented by a 2D array.
 However, the key and the exit will change positions randomly after some period. Find the key and escape from the maze. Have fun! 
 
@@ -51,7 +51,7 @@ However, the key and the exit will change positions randomly after some period. 
 - In-code documentation
 
 ### Compilation
-Run `make` under the ~/src directory of the project (i.e. where this file is located) to compile.
+Run `make main` under the ~/src directory of the project (i.e. where this file is located) to compile.
 
 If you ran into issues with `make main`, you can try `make clean` and then try again with `make main`.
 
