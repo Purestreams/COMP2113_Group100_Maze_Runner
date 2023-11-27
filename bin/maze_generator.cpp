@@ -36,4 +36,5 @@ void generate_maze(int **maze){
     maze[1][2] = 1;
     maze[2][1] = 1;
     maze[20][20] = 5; //monster
+    maze[25][25] = 6; //treasury box
 }

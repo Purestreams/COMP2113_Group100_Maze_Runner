@@ -117,8 +117,8 @@ int main()
                     mvprintw(31+j, 50, "%s %d", name[j].c_str(), score[j]);
                 }
                 getch();
-                endwin();
-                return 0;
+                clear();
+                
             }
             else if (location == 2) {
                 //display the instruction
