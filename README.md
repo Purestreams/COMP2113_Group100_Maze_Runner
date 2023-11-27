@@ -40,3 +40,23 @@ However, the key and the exit will change positions randomly after some period. 
 - The key and the exit will change positions randomly after some period
 - The game will end when you get to the exit
 - Displays the number of steps and time taken and your score when the game ends
+
+
+## Code Requirement
+- Generation of random game sets or events
+- Data structures for storing game status
+- Dynamic memory management
+- File input/output (Scoreboard)
+- Program codes in multiple files
+- Proper indentation and naming styles
+- In-code documentation
+
+### Quick Start
+
+## Compilation
+
+Run make main. 
+
+## Execution
+
+The executable file, generated once you have run make, is located at bin/bombescape. Note that config files and logs will be placed at where you called the executable file, not necessarily where the executable file is located.
