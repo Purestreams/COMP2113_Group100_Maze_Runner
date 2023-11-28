@@ -48,7 +48,7 @@ However, the key and the exit will change positions randomly after some period. 
 - The game will end when you get to the exit
 - Displays the number of steps and time taken and your score when the game ends
   
-## Game Features 
+## Game Technical Features 
 - Generation of random game sets or events
 - Data structures for storing game status
 - Dynamic memory management
