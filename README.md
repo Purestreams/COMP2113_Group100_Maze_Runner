@@ -48,7 +48,7 @@ However, the key and the exit will change positions randomly after some period. 
 - The game will end when you get to the exit
 - Displays the number of steps and time taken and your score when the game ends
   
-## Code Requirement
+## Game Features 
 - Generation of random game sets or events
 - Data structures for storing game status
 - Dynamic memory management
@@ -56,6 +56,11 @@ However, the key and the exit will change positions randomly after some period. 
 - Program codes in multiple files
 - Proper indentation and naming styles
 - In-code documentation
+
+## Dependencies
+The following non-standard C/C++ library has been used in this project:
+- `curses.h`/`ncurses.h` , for acquiring user input without blocking the processing and rendering the UI and graphics
+
 
 ### Compilation
 Run `make main` under the ~/src directory of the project (i.e. where this file is located) to compile.
