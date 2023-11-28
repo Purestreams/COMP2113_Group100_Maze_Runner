@@ -2,7 +2,11 @@
 *— a game made for ENGG1340 group project*
 
 ## Video demonstration
-[Onedrive]: (https://connecthkuhk-my.sharepoint.com/:v:/g/personal/u3606137_connect_hku_hk/EUOnSX3zZLRHurOyNcDSTXsBI7SFqzsiKEaizfab2SvWtQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&e=6Kpbc6)
+[Youtube](https://youtu.be/xPtkwtKMitk)
+
+
+[onedrive](https://connecthkuhk-my.sharepoint.com/:v:/g/personal/u3606137_connect_hku_hk/EUOnSX3zZLRHurOyNcDSTXsBI7SFqzsiKEaizfab2SvWtQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&e=NGoU4W)
+
 
 ## Team Members
 
