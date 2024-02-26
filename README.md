@@ -10,11 +10,11 @@
 
 ## Team Members
 
-Zhu Yecheng (Purestreams) 3036061373 \
-He Peishan (STARQUANTUM) 3036103793\
-Liu Kexin (Lydialkx) 3036098182\
-Shum Wai Lik Adrian (ActuaryLmao) 3035962441 \
-Sun Mingyue (Mingyue13) 3035988615 
+(Purestreams)
+(STARQUANTUM) 
+(Lydialkx)
+(ActuaryLmao) 
+(Mingyue13)
 
 ## Game Introduction
 **Name**
